@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xubin.starclass.views.TitleView
+        android:id="@+id/login_title"
+        app:left_visibility="gone"
+        app:center_tv_text="@string/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.xubin.starclass.views.CustomEdit
+        android:id="@+id/login_account"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        app:label_text="@string/account"
+        app:hint_text="@string/phone_number"
+        app:input_type="number"
+        app:et_maxlength="11"
+        app:label_width="50dp"
+        app:bt_src="@drawable/error_gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.xubin.starclass.views.CustomEdit
+        android:id="@+id/login_pwd"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        app:label_text="@string/pwd"
+        app:hint_text="@string/pwd"
+        app:input_type="pwd"
+        app:et_maxlength="20"
+        app:label_width="50dp"
+        app:bt_src="@drawable/error_gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/login_sign_in"
+        android:text="@string/ok"
+        android:textColor="@android:color/white"
+        android:background="@drawable/selector_bt_bg"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height" />
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/login_quick_reg"
+            android:text="@string/quick_reg"
+            android:textSize="@dimen/font_18"
+            android:layout_marginRight="15dp"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/login_forget_pwd"
+            android:text="@string/forget_pwd"
+            android:textSize="@dimen/font_18"
+            android:layout_marginRight="15dp"
+            android:textColor="@android:color/holo_blue_light"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

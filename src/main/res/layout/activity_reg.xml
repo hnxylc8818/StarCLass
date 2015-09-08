@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xubin.starclass.views.TitleView
+        android:id="@+id/login_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:center_tv_text="@string/reg"
+        app:left_src="@mipmap/back"
+        app:left_visibility="visible" />
+
+    <com.xubin.starclass.views.CustomEdit
+        android:id="@+id/reg_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        app:bt_src="@drawable/error_gray"
+        app:et_maxlength="11"
+        app:hint_text="@string/phone_number"
+        app:input_type="number"
+        app:label_text="@string/account"
+        app:label_width="50dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.xubin.starclass.views.CustomEdit
+            android:id="@+id/reg_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/reg_send_code"
+            app:bt_src="@drawable/error_gray"
+            app:et_maxlength="4"
+            app:hint_text="@string/code"
+            app:input_type="number"
+            app:label_text="@string/code"
+            app:label_width="50dp" />
+        <Button
+            android:id="@id/reg_send_code"
+            android:textSize="@dimen/font_14"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:enabled="false"
+            android:paddingLeft="10dp"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:textColor="@color/selector_code_color"
+            android:background="@drawable/selector_code_bg"
+            android:text="@string/send_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <com.xubin.starclass.views.CustomEdit
+        android:id="@+id/reg_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        app:bt_src="@mipmap/eye_visiable"
+        app:et_maxlength="20"
+        app:hint_text="@string/pwd_regular"
+        app:input_type="pwd"
+        app:label_text="@string/pwd"
+        app:label_width="50dp" />
+
+    <com.xubin.starclass.views.CustomEdit
+        android:id="@+id/reg_nick"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        app:bt_src="@mipmap/eye_visiable"
+        app:et_maxlength="20"
+        app:hint_text="@string/nick"
+        app:input_type="normal"
+        app:label_text="@string/nick"
+        app:label_width="50dp" />
+
+    <Button
+        android:id="@+id/reg_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_bt_bg"
+        android:text="@string/reg"
+        android:textColor="@android:color/white" />
+</LinearLayout>

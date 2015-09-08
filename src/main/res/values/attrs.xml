@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TitleView">
+        <attr name="left_src" format="reference|color"/>
+        <attr name="center_tv_size" format="dimension"/>
+        <attr name="center_tv_color" format="color"/>
+        <attr name="center_tv_text" format="string"/>
+        <attr name="left_visibility" format="enum">
+            <enum name="gone" value="0"/>
+            <enum name="visible" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CustomEdit">
+        <attr name="label_text" format="string"/>
+        <attr name="text_color" format="color"/>
+        <attr name="text_size" format="dimension"/>
+        <attr name="hint_text" format="string"/>
+        <attr name="input_type" format="enum">
+            <enum name="pwd" value="1"/>
+            <enum name="normal" value="2"/>
+            <enum name="number" value="3"/>
+        </attr>
+        <attr name="bt_src" format="reference|color"/>
+        <attr name="bt_visibility" format="enum">
+            <enum name="gone" value="0"/>
+            <enum name="visible" value="1"/>
+        </attr>
+        <attr name="et_maxlength" format="integer"/>
+        <attr name="label_width" format="dimension|integer"/>
+    </declare-styleable>
+</resources>
