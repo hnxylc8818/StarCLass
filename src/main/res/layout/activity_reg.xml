@@ -25,7 +25,7 @@
         app:hint_text="@string/phone_number"
         app:input_type="number"
         app:label_text="@string/account"
-        app:label_width="50dp" />
+        app:label_width="60dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
