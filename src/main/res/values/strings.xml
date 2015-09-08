@@ -15,4 +15,7 @@
     <string name="code">验证码</string>
     <string name="ok">确定</string>
     <string name="send_code">发送验证码</string>
+    <string name="pwd_format_error">密码格式错误</string>
+    <string name="account_error">账号错误</string>
+    <string name="error">发生错误，请稍后再试</string>
 </resources>

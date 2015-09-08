@@ -44,13 +44,12 @@
             app:hint_text="@string/code"
             app:input_type="number"
             app:label_text="@string/code"
-            app:label_width="50dp" />
+            app:label_width="60dp" />
         <Button
             android:id="@id/reg_send_code"
             android:textSize="@dimen/font_14"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:enabled="false"
             android:paddingLeft="10dp"
             android:layout_centerVertical="true"
             android:paddingRight="10dp"
@@ -73,7 +72,7 @@
         app:hint_text="@string/pwd_regular"
         app:input_type="pwd"
         app:label_text="@string/pwd"
-        app:label_width="50dp" />
+        app:label_width="60dp" />
 
     <com.xubin.starclass.views.CustomEdit
         android:id="@+id/reg_nick"
@@ -87,7 +86,7 @@
         app:hint_text="@string/nick"
         app:input_type="normal"
         app:label_text="@string/nick"
-        app:label_width="50dp" />
+        app:label_width="60dp" />
 
     <Button
         android:id="@+id/reg_sign_in"

@@ -29,6 +29,7 @@ public class CustomEdit extends RelativeLayout {
     private EditText et;
     private ImageView bt;
     private RelativeLayout root;
+    private OnBtClickLis btClickLis;
 
     public CustomEdit(Context context) {
         super(context);
@@ -56,6 +57,7 @@ public class CustomEdit extends RelativeLayout {
         root = (RelativeLayout) findViewById(R.id.cedit_root);
         et.setOnFocusChangeListener(focusChangeListener);
         et.addTextChangedListener(textWatcher);
+        bt.setOnClickListener(l);
 
         if (attrs == null) {
             return;
@@ -114,6 +116,21 @@ public class CustomEdit extends RelativeLayout {
 
     }
 
+    public void setBtClickLis(OnBtClickLis btClickLis) {
+        this.btClickLis = btClickLis;
+    }
+
+    private OnClickListener l = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (btClickLis == null) {
+                et.getText().clear();
+            }else{
+                btClickLis.onClick(et,CustomEdit.this);
+            }
+        }
+    };
+
     public void setOnBtClis(OnClickListener clis) {
         bt.setOnClickListener(clis);
     }
@@ -122,6 +139,13 @@ public class CustomEdit extends RelativeLayout {
         @Override
         public void onFocusChange(View v, boolean hasFocus) {
             root.setSelected(hasFocus);
+            if (hasFocus){
+                if (et.getText().length()>0){
+                    bt.setVisibility(View.VISIBLE);
+                }
+            }else{
+                bt.setVisibility(View.GONE);
+            }
         }
     };
     private TextWatcher textWatcher = new TextWatcher() {
@@ -164,5 +188,9 @@ public class CustomEdit extends RelativeLayout {
 
     public void setText(String text) {
         et.setText(text);
+    }
+
+    public interface OnBtClickLis{
+        void onClick(EditText editText,View view);
     }
 }
