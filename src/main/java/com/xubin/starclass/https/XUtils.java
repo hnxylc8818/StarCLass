@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.http.HttpHandler;
 import com.lidroid.xutils.http.RequestParams;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
@@ -44,7 +45,7 @@ public class XUtils {
         Toast.makeText(mContext, resId, Toast.LENGTH_SHORT).show();
     }
 
-    public static void send(String url, RequestParams params, RequestCallBack callBack) {
-        httpUtils.send(HttpRequest.HttpMethod.POST, BURL + url, params, callBack);
+    public static HttpHandler send(String url, RequestParams params, RequestCallBack callBack) {
+        return httpUtils.send(HttpRequest.HttpMethod.POST, BURL + url, params, callBack);
     }
 }
