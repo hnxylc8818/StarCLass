@@ -1,8 +1,11 @@
 package com.xubin.starclass;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
+import android.widget.Toast;
 
 import com.alibaba.fastjson.TypeReference;
 import com.lidroid.xutils.ViewUtils;
@@ -32,11 +35,19 @@ public class LoginActivity extends BaseActivity {
     @ViewInject(R.id.login_pwd)
     private CustomEdit cePwd;
 
+    private SharedPreferences sp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ViewUtils.inject(this);
+        sp=getSharedPreferences("user_data",MODE_PRIVATE);
+        String account=sp.getString("account","");
+        String pwd=sp.getString("pwd","");
+        // 读取本地文件并解密
+        ceAccount.setText(new String(Base64.decode(account,Base64.NO_WRAP)));
+        cePwd.setText(new String(Base64.decode(pwd,Base64.NO_WRAP)));
     }
 
     @OnClick({R.id.login_sign_in, R.id.login_forget_pwd, R.id.login_quick_reg})
@@ -82,6 +93,14 @@ public class LoginActivity extends BaseActivity {
                     XUtils.showToast(result.desc);
                     if (result.state == Result.STATE_SUC) {
                         MyApp.user = result.data;
+                        // 对账号密码进行Base64加密操作 Base64.NO_WRAP：加密时不换行
+                        String encodeAccount=Base64.encodeToString(MyApp.user.getAccount().getBytes(),Base64.NO_WRAP);
+                        String encodePwd=Base64.encodeToString(MyApp.user.getPwd().getBytes(),Base64.NO_WRAP);
+                        SharedPreferences.Editor editor=sp.edit();
+                        editor.clear();//清除之前的数据
+                        editor.putString("account",encodeAccount);
+                        editor.putString("pwd",encodePwd);
+                        editor.commit();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
