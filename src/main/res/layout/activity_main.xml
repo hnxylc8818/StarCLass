@@ -1,13 +1,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
+        android:id="@+id/main_sliding"
+        app:mode="left"
+        app:viewAbove="@layout/layout_content"
+        app:behindOffset="100dp"
+        app:touchModeAbove="fullscreen"
+        app:fadeDegree="0.3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

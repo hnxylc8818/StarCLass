@@ -81,7 +81,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
-        app:bt_src="@mipmap/eye_visiable"
+        app:bt_src="@drawable/error_gray"
         app:et_maxlength="20"
         app:hint_text="@string/nick"
         app:input_type="normal"

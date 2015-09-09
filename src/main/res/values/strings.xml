@@ -18,4 +18,13 @@
     <string name="pwd_format_error">密码格式错误</string>
     <string name="account_error">账号错误</string>
     <string name="error">发生错误，请稍后再试</string>
+    <string name="send_suc">发送成功</string>
+    <string name="send_fail">发送失败</string>
+    <string name="input_phone">请输入正确的手机号</string>
+    <string name="input_nick">请输入昵称</string>
+    <string name="error_code">验证码错误</string>
+    <string name="all_lessons">全部课程</string>
+    <string name="my_lesson">我的课程</string>
+    <string name="my_star">我的星币</string>
+    <string name="settting">设置</string>
 </resources>
