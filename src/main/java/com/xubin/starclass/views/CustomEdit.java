@@ -30,6 +30,7 @@ public class CustomEdit extends RelativeLayout {
     private ImageView bt;
     private RelativeLayout root;
     private OnBtClickLis btClickLis;
+    private boolean isPwd;
 
     public CustomEdit(Context context) {
         super(context);
@@ -108,8 +109,8 @@ public class CustomEdit extends RelativeLayout {
                     et.setFilters(new InputFilter[]{filter});
                     break;
                 case R.styleable.CustomEdit_label_width:
-                    int width=a.getDimensionPixelOffset(index,100);
-                    label.getLayoutParams().width=width;
+                    int width = a.getDimensionPixelOffset(index, 100);
+                    label.getLayoutParams().width = width;
                     break;
             }
         }
@@ -125,25 +126,25 @@ public class CustomEdit extends RelativeLayout {
         public void onClick(View v) {
             if (btClickLis == null) {
                 et.getText().clear();
-            }else{
-                btClickLis.onClick(et,CustomEdit.this);
+            } else {
+                btClickLis.onClick(et, CustomEdit.this);
             }
         }
     };
 
-    public void setOnBtClis(OnClickListener clis) {
-        bt.setOnClickListener(clis);
+    public void setOnBtClis(OnBtClickLis btClickLis) {
+        this.btClickLis = btClickLis;
     }
 
     private OnFocusChangeListener focusChangeListener = new OnFocusChangeListener() {
         @Override
         public void onFocusChange(View v, boolean hasFocus) {
             root.setSelected(hasFocus);
-            if (hasFocus){
-                if (et.getText().length()>0){
+            if (hasFocus) {
+                if (et.getText().length() > 0) {
                     bt.setVisibility(View.VISIBLE);
                 }
-            }else{
+            } else {
                 bt.setVisibility(View.GONE);
             }
         }
@@ -174,10 +175,13 @@ public class CustomEdit extends RelativeLayout {
 
     public void setInputType(int type) {
         if (type == PASSWORD) {
+            isPwd = true;
             et.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         } else if (type == NORMAL) {
+            isPwd = false;
             et.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
         } else if (type == NUMBER) {
+            isPwd = false;
             et.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_NUMBER_VARIATION_NORMAL);
         }
     }
@@ -190,7 +194,11 @@ public class CustomEdit extends RelativeLayout {
         et.setText(text);
     }
 
-    public interface OnBtClickLis{
-        void onClick(EditText editText,View view);
+    public interface OnBtClickLis {
+        void onClick(EditText editText, CustomEdit customEdit);
+    }
+
+    public boolean isPwd() {
+        return isPwd;
     }
 }

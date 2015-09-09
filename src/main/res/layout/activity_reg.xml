@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <com.xubin.starclass.views.TitleView
-        android:id="@+id/login_title"
+        android:id="@+id/reg_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:center_tv_text="@string/reg"
@@ -89,7 +89,7 @@
         app:label_width="60dp" />
 
     <Button
-        android:id="@+id/reg_sign_in"
+        android:id="@+id/reg_sign_up"
         android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
         android:layout_marginLeft="10dp"
