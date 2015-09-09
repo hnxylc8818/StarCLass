@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.lidroid.xutils.view.annotation.event.OnItemClick;
+import com.xubin.starclass.MainActivity;
 import com.xubin.starclass.MyApp;
 import com.xubin.starclass.R;
 import com.xubin.starclass.https.XUtils;
@@ -59,7 +60,24 @@ public class MenuFragment extends Fragment {
 
     @OnItemClick(R.id.menu_lv)
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        String tag=null;
+        switch (position){
+            case 0:
+                tag=MainActivity.LESSONS;
+                break;
+            case 1:
+                tag=MainActivity.MYLESSON;
+                break;
+            case 2:
+                tag=MainActivity.MYSTARS;
+                break;
+            case 3:
+                tag=MainActivity.SETTING;
+                break;
+        }
+        if (null != tag) {
+            ((MainActivity) getActivity()).setCurrentPage(tag);
+        }
     }
 
     public void updateMenu() {

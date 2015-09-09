@@ -27,4 +27,11 @@
     <string name="my_lesson">我的课程</string>
     <string name="my_star">我的星币</string>
     <string name="settting">设置</string>
+    <string name="sign">签到</string>
+    <string name="star_init">我的星币：0</string>
+    <string name="days_init">已连续签到0天</string>
+    <string name="sign_rule">签到规则：</string>
+    <string name="sign_rule_content">1.每天可签到一回\n2.首次签到可获得10$\n3.连续签到,每次增加10$\n4.中断一次后重新计数\n5.一次签到最多可获得100$</string>
+    <string name="days_format">已经连续签到%d天</string>
+    <string name="stars_format">我的星币：%d</string>
 </resources>

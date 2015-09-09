@@ -16,11 +16,12 @@ import com.xubin.starclass.R;
  */
 public class XUtils {
 
-    public static final String BURL = "http://192.168.11.222:8080/StartClass/";
+    public static final String BURL = "http://192.168.0.101:8080/StartClass/";
     public static final String LOGIN = "login";
     public static final String REG = "reg";
     public static final String UPHOTO="updatePhoto";
     public static final String UUSER="updateUser";
+    public static final String SIGN="sign";
 
     public static HttpUtils httpUtils;
     public static BitmapUtils bitmapUtils;
@@ -29,7 +30,7 @@ public class XUtils {
     public static void init(Context context) {
         mContext = context;
         if (httpUtils == null) {
-            httpUtils = new HttpUtils();
+            httpUtils = new HttpUtils(10000);
         }
         if (bitmapUtils == null) {
             bitmapUtils = new BitmapUtils(context);

@@ -89,4 +89,11 @@ public class TitleView extends RelativeLayout {
     public void setOnLeftClis(OnClickListener clis){
         imgLeft.setOnClickListener(clis);
     }
+
+    public void setTvCenterText(String text){
+        tvCenter.setText(text);
+    }
+    public void setTvCenterText(int resId){
+        tvCenter.setText(resId);
+    }
 }

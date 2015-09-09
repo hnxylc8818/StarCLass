@@ -47,4 +47,29 @@ public class MainActivity extends BaseActivity {
             sliding.showMenu();
         }
     };
+
+    /**
+     * 设置当前显示的界面
+     * @param tag
+     */
+    public void setCurrentPage(String tag){
+        // 关闭菜单
+        sliding.showContent();
+        tabHost.setCurrentTabByTag(tag);
+        switch (tag){
+            case LESSONS:
+                titleView.setTvCenterText(R.string.all_lessons);
+                break;
+            case MYLESSON:
+                titleView.setTvCenterText(R.string.my_lesson);
+                break;
+            case MYSTARS:
+                titleView.setTvCenterText(R.string.my_star);
+                break;
+            case SETTING:
+                titleView.setTvCenterText(R.string.settting);
+                break;
+        }
+
+    }
 }

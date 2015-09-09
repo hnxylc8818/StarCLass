@@ -71,7 +71,7 @@ public class RegActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SMSSDK.initSDK(this, "9ea4c7b5700e", "d0b57d4bf186388238d77eab2e23413b");
+        SMSSDK.initSDK(this, "a44b741a25b0", "fce93466d880bfa936238f2851f5ad9e");
         setContentView(R.layout.activity_reg);
         ViewUtils.inject(this);
 
