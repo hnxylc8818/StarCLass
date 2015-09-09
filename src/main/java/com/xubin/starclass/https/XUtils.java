@@ -19,6 +19,8 @@ public class XUtils {
     public static final String BURL = "http://192.168.11.222:8080/StartClass/";
     public static final String LOGIN = "login";
     public static final String REG = "reg";
+    public static final String UPHOTO="updatePhoto";
+    public static final String UUSER="updateUser";
 
     public static HttpUtils httpUtils;
     public static BitmapUtils bitmapUtils;

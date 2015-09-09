@@ -57,13 +57,17 @@ public class LoginActivity extends BaseActivity {
                 login();
                 break;
             case R.id.login_forget_pwd:
-
+                findPwd();
                 break;
             case R.id.login_quick_reg:
                 Intent intent = new Intent(LoginActivity.this, RegActivity.class);
                 startActivity(intent);
                 break;
         }
+
+    }
+
+    private void findPwd() {
 
     }
 

@@ -201,4 +201,8 @@ public class CustomEdit extends RelativeLayout {
     public boolean isPwd() {
         return isPwd;
     }
+
+    public void setEtChangeLis(TextWatcher textWatcher){
+        et.addTextChangedListener(textWatcher);
+    }
 }

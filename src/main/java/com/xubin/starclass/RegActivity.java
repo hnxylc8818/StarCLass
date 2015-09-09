@@ -1,10 +1,13 @@
 package com.xubin.starclass;
 
 import android.app.Activity;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,10 +51,12 @@ public class RegActivity extends BaseActivity {
     @ViewInject(R.id.reg_send_code)
     private Button sendCode;
 
-    private Handler handler=new Handler(new Handler.Callback() {
+    private int time = 30;
+
+    private Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case 1:
                     XUtils.showToast(msg.arg1);
                     break;
@@ -74,14 +79,36 @@ public class RegActivity extends BaseActivity {
         cePwd.setOnBtClis(btClickLis);
         // 添加回调事件
         SMSSDK.registerEventHandler(eventHandler);
+        sendCode.setEnabled(false);
+        // 文本框内容改变事件
+        ceAccount.setEtChangeLis(textWatcher);
     }
+
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if (s.length() == 11 && ceAccount.getText().matches("^1(3|4|5|7|8)\\d{9}$")) {
+                sendCode.setEnabled(true);
+            }
+        }
+    };
 
     private EventHandler eventHandler = new EventHandler() {
         @Override
         public void afterEvent(int event, int result, Object data) {
             if (result == SMSSDK.RESULT_COMPLETE) {
                 if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-                    handler.sendMessage(handler.obtainMessage(1,R.string.send_suc,0));
+                    handler.sendMessage(handler.obtainMessage(1, R.string.send_suc, 0));
                 } else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                     RequestParams params = new RequestParams();
                     params.addBodyParameter("u.account", account);
@@ -93,14 +120,15 @@ public class RegActivity extends BaseActivity {
                             DialogUtil.hiddenWaitting();
                             if (null != responseInfo) {
                                 JsonUtil<Result<Boolean>> jsonUtil = new JsonUtil<Result<Boolean>>
-                                        (new TypeReference<Result<Boolean>>() {});
-                                Result<Boolean> res=jsonUtil.parse(responseInfo.result);
-                                handler.sendMessage(handler.obtainMessage(2,res.desc));
-                                if (res.data){
+                                        (new TypeReference<Result<Boolean>>() {
+                                        });
+                                Result<Boolean> res = jsonUtil.parse(responseInfo.result);
+                                handler.sendMessage(handler.obtainMessage(2, res.desc));
+                                if (res.data) {
                                     finish();
                                 }
                             } else {
-                                handler.sendMessage(handler.obtainMessage(1,R.string.error,0));
+                                handler.sendMessage(handler.obtainMessage(1, R.string.error, 0));
                             }
                         }
                     });
@@ -111,9 +139,9 @@ public class RegActivity extends BaseActivity {
                     Log.e("MainActivity", "=====data======" + JSON.toJSONString(data));
                 }
                 if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-                    handler.sendMessage(handler.obtainMessage(1,R.string.send_fail,0));
+                    handler.sendMessage(handler.obtainMessage(1, R.string.send_fail, 0));
                 } else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
-                    handler.sendMessage(handler.obtainMessage(1,R.string.error_code,0));
+                    handler.sendMessage(handler.obtainMessage(1, R.string.error_code, 0));
                 }
             }
         }
@@ -145,7 +173,8 @@ public class RegActivity extends BaseActivity {
                 String phone = ceAccount.getText().toString().trim();
                 if (phone.matches("^1(3|4|5|7|8)\\d{9}$")) {
                     SMSSDK.getVerificationCode("86", phone);
-//                    sendCode.setEnabled(false);
+                    sendCode.setEnabled(false);
+                    handler.postDelayed(r, 1000);
                 } else {
                     XUtils.showToast(R.string.input_phone);
                 }
@@ -155,6 +184,23 @@ public class RegActivity extends BaseActivity {
                 break;
         }
     }
+
+    private Runnable r = new Runnable() {
+        @Override
+        public void run() {
+            sendCode.setText(time + "秒后重新发送");
+            time--;
+            if (time == 0) {
+                time = 30;
+                sendCode.setText("发送验证码");
+                sendCode.setEnabled(true);
+                handler.removeCallbacks(this);
+            } else {
+                sendCode.setEnabled(false);
+                handler.postDelayed(this, 1000);
+            }
+        }
+    };
 
 
     private String account;
