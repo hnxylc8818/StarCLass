@@ -23,6 +23,8 @@ import com.xubin.starclass.utils.JsonUtil;
 import com.xubin.starclass.views.CustomEdit;
 import com.xubin.starclass.views.TitleView;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by Xubin on 2015/9/8.
  */
@@ -119,5 +121,17 @@ public class LoginActivity extends BaseActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
     }
 }

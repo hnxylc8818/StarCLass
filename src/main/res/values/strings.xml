@@ -34,4 +34,6 @@
     <string name="sign_rule_content">1.每天可签到一回\n2.首次签到可获得10$\n3.连续签到,每次增加10$\n4.中断一次后重新计数\n5.一次签到最多可获得100$</string>
     <string name="days_format">已经连续签到%d天</string>
     <string name="stars_format">我的星币：%d</string>
+    <string name="download_suc">下载完成，即将自动安装</string>
+    <string name="download_fial">下载失败，请稍后重试</string>
 </resources>

@@ -42,8 +42,6 @@ public class MyStarsFragment extends Fragment {
     @ViewInject(R.id.star_sign)
     private Button btSign;
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -91,30 +89,6 @@ public class MyStarsFragment extends Fragment {
     }
 
     /**
-     * 读取用户上次签到日期，判断是否已签到
-     *
-     * @return
-     */
-    private boolean hasSign() {
-        String lastDateStr = MyApp.user.getLastOnlineDate();
-        if (TextUtils.isEmpty(lastDateStr)) {
-            return false;
-        }
-        try {
-            Date now = new Date();
-            String nowStr = sdf.format(now);
-            now = sdf.parse(nowStr);
-            Date lastDate = sdf.parse(lastDateStr);
-            if (lastDate.getTime() < now.getTime()) {
-                return false;
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return true;
-    }
-
-    /**
      * 更新数据
      */
     public void updateData() {
@@ -122,7 +96,7 @@ public class MyStarsFragment extends Fragment {
                 MyApp.user.getOnlineDay() == null ? 0 : MyApp.user.getOnlineDay()));
         tvStats.setText(String.format(getActivity().getString(R.string.stars_format),
                 MyApp.user.getStart() == null ? 0 : MyApp.user.getStart()));
-        if (hasSign()) {
+        if (MyApp.user.isHasSign()) {
             btSign.setText("已签到");
             btSign.setEnabled(false);
         } else {

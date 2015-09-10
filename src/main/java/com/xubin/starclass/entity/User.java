@@ -20,6 +20,7 @@ public class User  implements java.io.Serializable {
      private Integer start;
      private Integer onlineDay;
      private String lastOnlineDate;
+     private boolean hasSign;
 
 
     // Constructors
@@ -43,6 +44,14 @@ public class User  implements java.io.Serializable {
         this.start = start;
         this.onlineDay = onlineDay;
         this.lastOnlineDate = lastOnlineDate;
+    }
+
+    public boolean isHasSign() {
+        return hasSign;
+    }
+
+    public void setHasSign(boolean hasSign) {
+        this.hasSign = hasSign;
     }
 
     public Integer getUid() {
