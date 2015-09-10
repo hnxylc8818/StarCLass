@@ -232,7 +232,7 @@ public class RegActivity extends BaseActivity {
         }
         if (code.length() == 4) {
             DialogUtil.showWaitting(this);
-            // 发送验证码
+            // 提交验证码
             SMSSDK.submitVerificationCode("86", account, code);
         }
     }

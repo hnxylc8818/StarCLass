@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/lessons_item_thumb"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="fitXY"
+        android:layout_width="@dimen/lessons_item_img_w"
+        android:layout_height="@dimen/lessons_item_img_w" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lessons_item_img_h">
+
+        <TextView
+            android:id="@+id/lessons_item_name"
+            android:textSize="@dimen/font_18"
+            android:textColor="@color/text_color"
+            android:layout_margin="5dp"
+            android:text="name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/lessons_item_desc"
+            android:layout_below="@id/lessons_item_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:text="desc"
+            android:textSize="@dimen/font_14"
+            android:textColor="@android:color/darker_gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:background="@android:color/darker_gray"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/font_14"
+                android:layout_marginRight="10dp"
+                android:text="ssss"
+                android:layout_alignParentRight="true"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

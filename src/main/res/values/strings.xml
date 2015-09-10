@@ -36,4 +36,5 @@
     <string name="stars_format">我的星币：%d</string>
     <string name="download_suc">下载完成，即将自动安装</string>
     <string name="download_fial">下载失败，请稍后重试</string>
+    <string name="cancer">取消</string>
 </resources>

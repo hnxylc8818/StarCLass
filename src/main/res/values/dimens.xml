@@ -15,4 +15,6 @@
     <dimen name="button_height_half">25dp</dimen>
     <dimen name="menu_photo_size">70dp</dimen>
     <dimen name="mystars_top_height">200dp</dimen>
+    <dimen name="lessons_item_img_w">100dp</dimen>
+    <dimen name="lessons_item_img_h">100dp</dimen>
 </resources>

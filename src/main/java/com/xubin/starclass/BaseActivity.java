@@ -6,6 +6,8 @@ import android.view.KeyEvent;
 import com.lidroid.xutils.http.HttpHandler;
 import com.xubin.starclass.utils.DialogUtil;
 
+import cn.jpush.android.api.JPushInterface;
+
 /**
  * Created by Xubin on 2015/9/8.
  */
@@ -30,5 +32,17 @@ public class BaseActivity extends FragmentActivity {
     protected void onDestroy() {
         super.onDestroy();
         DialogUtil.destoryWaitting();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JPushInterface.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        JPushInterface.onResume(this);
     }
 }

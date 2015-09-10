@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.lidroid.xutils.ViewUtils;
 import com.xubin.starclass.R;
 
 /**
@@ -20,7 +21,12 @@ public class LessionsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (view == null){
-//            view=inflater.inflate(R.layout.)
+            view=inflater.inflate(R.layout.fragment_lessons,null);
+            ViewUtils.inject(this,view);
+        }
+        ViewGroup parent= (ViewGroup) view.getParent();
+        if (null != parent){
+            parent.removeView(view);
         }
         return super.onCreateView(inflater, container, savedInstanceState);
     }

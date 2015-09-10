@@ -19,6 +19,7 @@ import com.xubin.starclass.entity.User;
 import com.xubin.starclass.https.MyCallBack;
 import com.xubin.starclass.https.XUtils;
 import com.xubin.starclass.utils.DialogUtil;
+import com.xubin.starclass.utils.FindPwdDialog;
 import com.xubin.starclass.utils.JsonUtil;
 import com.xubin.starclass.views.CustomEdit;
 import com.xubin.starclass.views.TitleView;
@@ -70,7 +71,8 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void findPwd() {
-
+        FindPwdDialog findPwdDialog=new FindPwdDialog(this);
+        findPwdDialog.showFind();
     }
 
     private void login() {
@@ -121,17 +123,5 @@ public class LoginActivity extends BaseActivity {
 
             }
         });
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        JPushInterface.onPause(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        JPushInterface.onResume(this);
     }
 }
