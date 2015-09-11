@@ -39,4 +39,6 @@
     <string name="cancer">取消</string>
     <string name="intr">课程介绍</string>
     <string name="list">课程列表</string>
+    <string name="get_account_fail">获取账号失败</string>
+    <string name="two_pwd_no_same">两次密码不一致</string>
 </resources>

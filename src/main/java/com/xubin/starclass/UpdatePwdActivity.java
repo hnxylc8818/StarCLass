@@ -65,17 +65,17 @@ public class UpdatePwdActivity extends BaseActivity {
     @OnClick(R.id.update_ok)
     private void click(View v){
         if (TextUtils.isEmpty(account)){
-            XUtils.showToast("获取账号失败");
+            XUtils.showToast(R.string.get_account_fail);
             return;
         }
         String newPwd=ceNewPwd.getText();
         String repwd=ceRepwd.getText();
-        if (TextUtils.isEmpty(newPwd)){
-            XUtils.showToast("请输入新密码");
+        if (!newPwd.matches("^\\w{6,20}$")) {
+            XUtils.showToast(R.string.pwd_format_error);
             return;
         }
         if (!newPwd.equals(repwd)){
-            XUtils.showToast("两次密码不一致");
+            XUtils.showToast(R.string.two_pwd_no_same);
             return;
         }
         DialogUtil.showWaitting(this);
