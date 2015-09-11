@@ -2,6 +2,7 @@ package com.xubin.starclass;
 
 import android.app.Application;
 
+import com.xubin.starclass.entity.Lesson;
 import com.xubin.starclass.entity.User;
 import com.xubin.starclass.https.XUtils;
 import com.xubin.starclass.utils.SharedUtil;
@@ -13,6 +14,7 @@ import cn.jpush.android.api.JPushInterface;
  */
 public class MyApp extends Application {
     public static User user;
+    public static Lesson lesson;
 
     @Override
     public void onCreate() {
@@ -25,5 +27,10 @@ public class MyApp extends Application {
         }else{
             JPushInterface.stopPush(getApplicationContext());
         }
+    }
+
+    public static void release(){
+        user=null;
+        lesson=null;
     }
 }

@@ -48,12 +48,12 @@ public class MyStarsFragment extends Fragment {
         if (view == null) {
             view = inflater.inflate(R.layout.fragment_mystars, null);
             ViewUtils.inject(this, view);
+            updateData();
         }
         ViewGroup parent = (ViewGroup) view.getParent();
         if (null != parent) {
             parent.removeView(view);
         }
-        updateData();
         return view;
     }
 

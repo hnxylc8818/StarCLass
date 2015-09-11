@@ -37,4 +37,6 @@
     <string name="download_suc">下载完成，即将自动安装</string>
     <string name="download_fial">下载失败，请稍后重试</string>
     <string name="cancer">取消</string>
+    <string name="intr">课程介绍</string>
+    <string name="list">课程列表</string>
 </resources>

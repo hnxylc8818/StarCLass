@@ -24,14 +24,17 @@ import java.io.File;
  */
 public class XUtils {
 
-        public static final String BURL = "http://123.56.126.25:8080/StartClass/";
-//    public static final String BURL = "http://192.168.11.222:8080/StartClass/";
+    public static final String BURL = "http://123.56.126.25:8080/StartClass/";
+    //    public static final String BURL = "http://192.168.11.222:8080/StartClass/";
     public static final String LOGIN = "login";
     public static final String REG = "reg";
     public static final String UPHOTO = "updatePhoto";
     public static final String UUSER = "updateUser";
     public static final String SIGN = "sign";
-    public static final String VER="ver";
+    public static final String VER = "ver";
+    public static final String LESSONS = "lessons";
+    public static final String LES = "les";
+    public static final String MLS = "mylessons";
 
     public static HttpUtils httpUtils;
     public static BitmapUtils bitmapUtils;
@@ -65,21 +68,21 @@ public class XUtils {
     public static void download(String url) {
         String path = Environment.getExternalStorageDirectory() + File.separator + "starclass"
                 + File.separator + "download" + File.separator + "starclass.apk";
-        File f=new File(path);
-        if (f.exists()){
+        File f = new File(path);
+        if (f.exists()) {
             f.delete();
         }
         httpUtils.download(BURL + url, path, true, true, new RequestCallBack<File>() {
             @Override
             public void onSuccess(ResponseInfo<File> responseInfo) {
-                if (null != responseInfo){
+                if (null != responseInfo) {
                     showToast(R.string.download_suc);
-                    File file=responseInfo.result;
-                    Intent intent=new Intent(Intent.ACTION_VIEW);
-                    intent.setDataAndType(Uri.fromFile(file),"application/vnd.android.package-archive");
+                    File file = responseInfo.result;
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(intent);
-                }else{
+                } else {
                     showToast(R.string.error);
                 }
             }
@@ -87,13 +90,13 @@ public class XUtils {
             @Override
             public void onLoading(long total, long current, boolean isUploading) {
                 super.onLoading(total, current, isUploading);
-                Log.e("MainActivity","===loading===="+current);
+                Log.e("MainActivity", "===loading====" + current);
             }
 
             @Override
             public void onFailure(HttpException e, String s) {
                 showToast(R.string.download_fial);
-                Log.e("MainActivity","====download error===="+s);
+                Log.e("MainActivity", "====download error====" + s);
                 e.printStackTrace();
             }
         });
