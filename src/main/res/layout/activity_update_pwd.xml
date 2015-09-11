@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xubin.starclass.views.TitleView
+        android:id="@+id/update_title"
+        app:center_tv_text="修改密码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.xubin.starclass.views.CustomEdit
+        android:id="@+id/update_new_pwd"
+        app:hint_text="新密码"
+        app:input_type="pwd"
+        app:label_text="新密码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.xubin.starclass.views.CustomEdit
+        android:id="@+id/update_repwd"
+        app:hint_text="确认密码"
+        app:input_type="pwd"
+        app:label_text="确认密码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/update_ok"
+            android:text="@string/ok"
+            android:textColor="@android:color/white"
+            android:background="@drawable/selector_bt_bg"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/button_height" />
+
+    </LinearLayout>
+
+</LinearLayout>
