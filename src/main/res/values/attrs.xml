@@ -29,4 +29,13 @@
         <attr name="et_maxlength" format="integer"/>
         <attr name="label_width" format="dimension|integer"/>
     </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr name="circle_hasstroke" format="boolean"></attr>
+        <attr name="border_color" format="color"></attr>
+        <attr name="border_width" format="dimension"></attr>
+        <attr name="circle_checkable" format="boolean"></attr>
+        <attr name="circle_checked" format="boolean"></attr>
+        <attr name="circle_checked_g" format="boolean"></attr>
+    </declare-styleable>
 </resources>

@@ -19,6 +19,7 @@ import com.xubin.starclass.MainActivity;
 import com.xubin.starclass.MyApp;
 import com.xubin.starclass.R;
 import com.xubin.starclass.https.XUtils;
+import com.xubin.starclass.views.CircleImageView;
 
 /**
  * Created by Xubin on 2015/9/9.
@@ -28,7 +29,7 @@ public class MenuFragment extends Fragment {
     private View view;
 
     @ViewInject(R.id.menu_photo)
-    private ImageView photo;
+    private CircleImageView photo;
     @ViewInject(R.id.menu_nick)
     private TextView nick;
     @ViewInject(R.id.menu_lv)

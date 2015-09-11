@@ -22,8 +22,9 @@ public class BaseActivity extends FragmentActivity {
             if (null != httpHandler && !httpHandler.isCancelled()) {
                 httpHandler.cancel();
                 httpHandler = null;
+                return true;
             }
-            return true;
+
         }
         return super.onKeyDown(keyCode, event);
     }
