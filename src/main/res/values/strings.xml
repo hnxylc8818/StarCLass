@@ -41,4 +41,5 @@
     <string name="list">课程列表</string>
     <string name="get_account_fail">获取账号失败</string>
     <string name="two_pwd_no_same">两次密码不一致</string>
+    <string name="lesson_complete">你已经看完了全部课程</string>
 </resources>

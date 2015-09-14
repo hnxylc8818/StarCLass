@@ -24,8 +24,8 @@ import java.io.File;
  */
 public class XUtils {
 
-    public static final String BURL = "http://123.56.126.25:8080/StartClass/";
-    //    public static final String BURL = "http://192.168.11.222:8080/StartClass/";
+//    public static final String BURL = "http://123.56.126.25:8080/StartClass/";
+        public static final String BURL = "http://192.168.32.105:8080/StartClass/";
     public static final String LOGIN = "login";
     public static final String REG = "reg";
     public static final String UPHOTO = "updatePhoto";
@@ -35,6 +35,7 @@ public class XUtils {
     public static final String LESSONS = "lessons";
     public static final String LES = "les";
     public static final String MLS = "mylessons";
+    public static final String LES_DETAIL="lessondetail";
 
     public static HttpUtils httpUtils;
     public static BitmapUtils bitmapUtils;

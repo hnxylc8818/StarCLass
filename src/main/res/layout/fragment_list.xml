@@ -9,6 +9,7 @@
         android:layout_margin="10dp"
         android:cacheColorHint="@android:color/transparent"
         android:scrollbars="none"
+        android:groupIndicator="@null"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

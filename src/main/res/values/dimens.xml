@@ -20,4 +20,6 @@
     <dimen name="lesson_info_thumb_height">170dp</dimen>
     <dimen name="lesson_info_tab_height">40dp</dimen>
     <dimen name="lesson_info_intr_photo">70dp</dimen>
+    <dimen name="item_lesson_icn_size">25dp</dimen>
+    <dimen name="left_margin">15dp</dimen>
 </resources>

@@ -42,7 +42,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/starclass"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@android:style/Theme.Light.NoTitleBar">
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name">
@@ -58,6 +58,7 @@
             android:label="@string/app_name"></activity>
         <activity android:name=".UpdatePwdActivity"/>
         <activity android:name=".LessonInfoActivity"/>
+        <activity android:name=".PlayActivity"/>
 
         <!-- SMSSDK -->
         <activity
